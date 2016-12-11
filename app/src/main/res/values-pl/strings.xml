@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lotnisko Gdańsk</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="navigation_drawer_close">Zamknij</string>
+    <string name="navigation_drawer_open">Otwórz</string>
+    <string name="flights">Loty</string>
+    <string name="arrivals">Przyloty</string>
+    <string name="departures">Odloty</string>
+    <string name="destinations">Mapa połączeń</string>
+    <string name="before_flight">Przed odlotem</string>
+    <string name="checking_in">Odprawa</string>
+    <string name="luggage">Bagaż</string>
+    <string name="parking">Parking</string>
+    <string name="passenger_area">Dla pasażerów</string>
+    <string name="terminal">Terminal</string>
+    <string name="transportation">Jak dojechać</string>
+    <string name="header_destination">Kierunek</string>
+    <string name="header_exp_time">Czas ocz.</string>
+    <string name="header_flight">Rejs</string>
+    <string name="header_freighter">Przewoźnik</string>
+    <string name="header_remarks">Uwagi</string>
+    <string name="header_time">Czas</string>
+</resources>

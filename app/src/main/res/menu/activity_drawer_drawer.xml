@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/flights">
+        <menu>
+            <item
+                android:id="@+id/nav_arrivals"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/arrivals" />
+            <item
+                android:id="@+id/nav_departures"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/departures" />
+            <item
+                android:id="@+id/nav_destinations_map"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="@string/destinations" />
+        </menu>
+    </item>
+
+    <item android:title="@string/passenger_area">
+        <menu>
+            <item
+                android:id="@+id/nav_before_flight"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/before_flight" />
+            <item
+                android:id="@+id/nav_transportation"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/transportation" />
+            <item
+                android:id="@+id/nav_checking_in"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="@string/checking_in" />
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_parking"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/parking" />
+        <item
+            android:id="@+id/nav_terminal"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/terminal" />
+    </group>
+</menu>

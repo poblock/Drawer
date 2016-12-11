@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="nav_header_bg">#FFFFFF</color>
+    <color name="navigation_view_bg">#FFFFFF</color>
+    <color name="menu_color_item">#000000</color>
+    <color name="kontener_bg">#FFFFFF</color>
+    <color name="toolbar_bg">#3B6C8E</color>
+
+    <color name="tablayout_bg">#3B6C8E</color>
+    <color name="tablayout_indicator">#FFFFFF</color>
+    <color name="tablayout_selectedText">#FFFFFF</color>
+</resources>
