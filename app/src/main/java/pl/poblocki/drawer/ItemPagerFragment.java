@@ -40,9 +40,6 @@ public class ItemPagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_pager, container, false);
-        TextView txt = (TextView) view.findViewById(R.id.item_txt);
-        txt.setText(mParam1);
-
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(new Adapter(1));

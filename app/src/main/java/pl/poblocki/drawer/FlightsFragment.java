@@ -43,18 +43,6 @@ public class FlightsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_flights, container, false);
-        Button b = (Button) view.findViewById(R.id.button);
-        TextView txt = (TextView) view.findViewById(R.id.textView);
-        txt.setText("Strona "+pageID);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar snackbar = Snackbar
-                        .make(view, "Welcome in "+pageID, Snackbar.LENGTH_LONG);
-                snackbar.show();
-            }
-        });
-
         switch (pageID) {
             case R.id.nav_arrivals :
                 break;
@@ -63,17 +51,11 @@ public class FlightsFragment extends Fragment {
         }
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         ViewPager pager = (ViewPager) view.findViewById(R.id.viewPager);
-        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getChildFragmentManager());
         pager.setAdapter(mSectionsPagerAdapter);
         tabLayout.setupWithViewPager(pager);
         return view;
     }
-
-//    public void onButtonPressed(Uri uri) {
-////        if (mListener != null) {
-////            mListener.onFragmentInteraction(uri);
-////        }
-//    }
 
     @Override
     public void onAttach(Context context) {
@@ -98,8 +80,10 @@ public class FlightsFragment extends Fragment {
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        private Context context;
+        public SectionsPagerAdapter(Context c, FragmentManager fm) {
             super(fm);
+            this.context = c;
         }
 
         @Override
@@ -115,8 +99,8 @@ public class FlightsFragment extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0: return "Przyloty";
-                case 1: return "Odloty";
+                case 0: return context.getString(R.string.arrivals);
+                case 1: return context.getString(R.string.departures);
                 default: return null;
             }
         }
