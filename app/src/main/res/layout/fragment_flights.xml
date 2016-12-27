@@ -9,15 +9,15 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:background="@color/tablayout_bg"
         app:tabIndicatorColor="@color/tablayout_indicator"
-        app:tabSelectedTextColor="@color/tablayout_selectedText" />
+        app:tabSelectedTextColor="@color/tablayout_selectedText"
+        app:tabIndicatorHeight="2dp" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="52dp"/>
+        android:layout_marginTop="48dp"/>
 
 </FrameLayout>

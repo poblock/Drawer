@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="6dp">
+    android:layout_marginTop="16dp">
 
     <TextView
         android:text="@string/header_destination"
@@ -24,7 +24,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/header_freighter"
             style="@style/header_table"
-            android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal" />
+
         <TextView
             android:text="@string/header_exp_time"
             android:layout_width="match_parent"

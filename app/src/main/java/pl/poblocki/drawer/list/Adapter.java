@@ -21,8 +21,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private final List<Content.DummyItem> mValues;
 
-    public Adapter(int listID) {
-        mValues = Content.makeList(listID);
+    public Adapter() {
+        mValues = Content.makeList(true);
     }
 
     @Override

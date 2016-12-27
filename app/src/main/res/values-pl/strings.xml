@@ -21,4 +21,6 @@
     <string name="header_freighter">Przewoźnik</string>
     <string name="header_remarks">Uwagi</string>
     <string name="header_time">Czas</string>
+    <string name="section_today">Dzisiaj</string>
+    <string name="section_tomorrow">Następny dzień</string>
 </resources>

@@ -23,6 +23,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/header_txt</item>
     </style>
+
     <style name="item_table">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_gravity">center_vertical|center_horizontal</item>

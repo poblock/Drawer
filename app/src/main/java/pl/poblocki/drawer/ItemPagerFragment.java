@@ -10,12 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import pl.poblocki.drawer.list.Adapter;
+import pl.poblocki.drawer.list.Section;
 
 
 public class ItemPagerFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private String mParam1;
+
+    private SectionedRecyclerViewAdapter sectionAdapter;
 
     public ItemPagerFragment() {
     }
@@ -42,7 +46,12 @@ public class ItemPagerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_item_pager, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new Adapter(1));
+
+        sectionAdapter = new SectionedRecyclerViewAdapter();
+        sectionAdapter.addSection(new Section(getContext(), false));
+        sectionAdapter.addSection(new Section(getContext(), true));
+
+        recyclerView.setAdapter(sectionAdapter);
         return view;
     }
 

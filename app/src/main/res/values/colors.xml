@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3B6C8E</color>
     <color name="colorPrimaryDark">#2A5B7D</color>
     <color name="colorAccent">#00AFDC</color>
-
+    <color name="section_bg_divider">#3300AFDC</color>
     <color name="nav_header_bg">#FFFFFF</color>
     <color name="navigation_view_bg">#FFFFFF</color>
     <color name="menu_color_item">#000000</color>
@@ -13,6 +13,10 @@
     <color name="tablayout_bg">#3B6C8E</color>
     <color name="tablayout_indicator">#FFFFFF</color>
     <color name="tablayout_selectedText">#FFFFFF</color>
-    <color name="header_txt">#00AFDC</color>
+    <color name="header_txt">#FFFFFF</color>
+    <color name="header_bg">#3B6C8E</color>
     <color name="table_item_txt">#000000</color>
+    <color name="table_item_bg_odd">#FFFFFF</color>
+    <color name="table_item_bg_even">#F7F7F7</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
