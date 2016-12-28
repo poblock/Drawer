@@ -19,5 +19,5 @@
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/list_item"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="60dp" />
 </FrameLayout>

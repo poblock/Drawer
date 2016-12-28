@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="16dp">
+    android:layout_height="48dp"
+    android:layout_marginTop="12dp">
 
-    <TextView
-        android:text="@string/header_destination"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_destination"
-        style="@style/header_table"
-        android:layout_gravity="start"
-        android:textAlignment="viewStart"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp" />
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="@string/header_destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_destination"
+            style="@style/header_table"
+            android:layout_gravity="start"
+            android:textAlignment="viewStart"
+            android:layout_marginStart="@dimen/item_table_margin_start"
+            android:layout_marginLeft="@dimen/item_table_margin_start" />
 
-    <TextView
+        <TextView
             android:text="@string/header_freighter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/header_freighter"
             style="@style/header_table"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:text="@string/header_exp_time"
@@ -36,5 +43,47 @@
             android:textAlignment="viewEnd"
             android:layout_gravity="center_horizontal|end"
             android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="20dp">
+        <TextView
+            android:text="@string/header_remarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_remarks"
+            style="@style/header_table"
+            android:layout_gravity="start"
+            android:textAlignment="viewStart"
+            android:layout_marginStart="@dimen/item_table_margin_start"
+            android:layout_marginLeft="@dimen/item_table_margin_start" />
+
+        <TextView
+            android:text="@string/header_flight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_flight"
+            style="@style/header_table"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:text="@string/header_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_time"
+            style="@style/header_table"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="center_horizontal|end"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
     </LinearLayout>

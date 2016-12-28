@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
@@ -95,7 +97,18 @@ public class Section extends StatelessSection {
     @Override
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
         HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
-        headerHolder.title.setText(isNextDay ? context.getString(R.string.section_tomorrow) : context.getString(R.string.section_today));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        String titleString = null;
+        if(isNextDay) {
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.DAY_OF_YEAR, 1);
+            titleString = context.getString(R.string.section_tomorrow)+" "+sdf.format(c.getTime());
+        } else {
+            titleString = context.getString(R.string.section_today)+" "+sdf.format(Calendar.getInstance().getTime());
+        }
+        if(titleString!=null) {
+            headerHolder.title.setText(titleString);
+        }
     }
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {
