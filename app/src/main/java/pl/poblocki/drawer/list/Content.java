@@ -16,16 +16,20 @@ public class Content {
 
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
-    private static final int COUNT = 15;
+    private static final int COUNT = 30;
 
-    private static String[] airlines = {"Wizzair", "Ryanair", "SAS", "LOT", "KLM", "Lufthansa", "Norwegian", "UIA", "Air Berlin", "Finnair"};
+    private static String[] airlines = {"Wizzair", "Ryanair", "SAS", "LOT", "KLM", "Lufthansa", "Norwegian", "UIA", "Air Berlin", "Finnair",
+    "Travel Service", "7 Islands", "Blue Bird", "Ecco", "Exim", "Grecos", "Itaka", "Matimpex", "Neckermann", "Rainbow", "Small Planet",
+    "SunFun", "TUI", "Wezyr", "Wizz Tours", "Sprint Air"};
     private static String[] destinations = {"WARSZAWA","MONACHIUM","SZTOKHOLM ARLANDA","LONDYN LUTON","LONDYN STANSTED","MEDIOLAN",
-    "EINDHOVEN","TURKU","KOPENHAGA","TENERIFE SOUTH","DONCASTER SHEFFIELD"};
+    "EINDHOVEN","TURKU","KOPENHAGA","TENERIFE SOUTH","DONCASTER SHEFFIELD", "FUERTEVENTURA", "RADOM", "GRAN CANARIA"};
     private static String[] remarks = {"OPÓŹNIONY 10:35", "WYLĄDOWAŁ", "", "OCZEKIWANY 12:48", "OPÓŹNIONY 16:30/VOUCHERY GATE 21", "DO WYJŚCIA/OPÓŹNIONY 14:55"};
+    private static String[] codes = {"LO 3835", "LH 1642", "W6 1602", "FR 2374"};
+    private static String[] times = {"09:45", "10:35", "11:25"," 11:05", "12:48", "13:46"};
 
     public static List<DummyItem> makeList(boolean isNextDay) {
         for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i, isNextDay));
+            addItem(createDummyItem(isNextDay));
         }
         return ITEMS;
     }
@@ -35,46 +39,16 @@ public class Content {
         ITEM_MAP.put(item.flight, item);
     }
 
-    private static DummyItem createDummyItem(int position, boolean isNextDay) {
-        int reszta = position % 11;
+    private static DummyItem createDummyItem(boolean isNextDay) {
         Random r = new Random();
-        DummyItem item = null;
-        switch (reszta) {
-            case 0 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"LO 3835",airlines[reszta],"09:45","10:35",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 1 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"LH 1642",airlines[reszta],"12:40","",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 2 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"W6 1602",airlines[reszta],"11:25","11:05",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 3 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"W6 1602",airlines[reszta],"11:25","13:46",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 4 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374",airlines[reszta],"11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 5 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374",airlines[reszta],"11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 6 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374",airlines[reszta],"11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 7 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374",airlines[reszta],"11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 8 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374",airlines[reszta],"11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 9 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374",airlines[reszta],"11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-            case 10 :
-                item = new DummyItem(destinations[r.nextInt(destinations.length)],"FR 2374","Ryanair","11:25","12:48",remarks[r.nextInt(remarks.length)], isNextDay);
-                break;
-        }
-        return item;
+        return new DummyItem(
+                destinations[r.nextInt(destinations.length)],
+                codes[r.nextInt(codes.length)],
+                airlines[r.nextInt(airlines.length)],
+                times[r.nextInt(times.length)],
+                times[r.nextInt(times.length)],
+                remarks[r.nextInt(remarks.length)],
+                isNextDay);
     }
 
     public static class DummyItem {

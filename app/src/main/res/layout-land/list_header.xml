@@ -3,75 +3,91 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="24dp"
     android:gravity="center_horizontal"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="24dp">
+    android:layout_marginTop="12dp">
 
     <TextView
+        android:id="@+id/header_destination"
         android:text="@string/header_destination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/header_destination"
         style="@style/header_table"
-        android:layout_gravity="start"
+        android:layout_gravity="center_vertical|center_horizontal|start"
         android:textAlignment="viewStart"
         android:layout_marginStart="@dimen/item_table_margin_start"
-        android:layout_marginLeft="@dimen/item_table_margin_start" />
+        android:layout_marginLeft="@dimen/item_table_margin_start"
+        />
+
     <TextView
+        android:id="@+id/header_flight"
         android:text="@string/header_flight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/header_flight"
         style="@style/header_table"
-        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_weight="0"
+        android:minWidth="60dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp" />
-
-    <TextView
-        android:text="@string/header_freighter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_freighter"
-        style="@style/header_table"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="8dp"
         android:gravity="center_horizontal"
-        android:layout_weight="1" />
+        />
 
     <TextView
+        android:id="@+id/header_freighter"
+        android:text="@string/header_freighter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/header_table"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_weight="0"
+        android:minWidth="90dp"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/header_time"
         android:text="@string/header_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/header_time"
         style="@style/header_table"
-        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_weight="0"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginRight="8dp"
+        android:minWidth="56dp"
+        android:gravity="center_horizontal"
+        />
+
     <TextView
-        android:text="@string/header_exp_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/header_exp_time"
+        android:text="@string/header_exp_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         style="@style/header_table"
-        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="4dp"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"/>
+        android:layout_marginRight="4dp"
+        android:minWidth="56dp"
+        android:layout_weight="0"
+        android:gravity="center_horizontal"
+        />
+
     <TextView
+        android:id="@+id/header_remarks"
         android:text="@string/header_remarks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/header_remarks"
         style="@style/header_table"
         android:textAlignment="viewEnd"
-        android:layout_gravity="center_horizontal|end"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"/>
+        android:layout_gravity="center_vertical|center_horizontal|end"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        />
 </LinearLayout>

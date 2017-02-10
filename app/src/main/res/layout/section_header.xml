@@ -6,7 +6,7 @@
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/navigation_view_bg"
+    android:background="@color/tablayout_bg"
     android:orientation="vertical"
     android:gravity="center_vertical">
 
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         tools:text="Title test text"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/nav_header_bg"
         android:textStyle="bold"
         android:id="@+id/tvTitle"
         android:gravity="center_vertical|center_horizontal|center"

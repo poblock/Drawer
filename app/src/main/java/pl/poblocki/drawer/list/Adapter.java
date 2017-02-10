@@ -25,18 +25,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         mValues = Content.makeList(true);
     }
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mDestination.setText(mValues.get(position).destination);
-        String airline = mValues.get(position).freighter;
+    public int getAirlineImg(String airline) {
         int img = R.drawable.airline;
         if(airline.equals("Wizzair")) {
             img = R.drawable.wizzair;
@@ -58,7 +47,54 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             img = R.drawable.sas;
         }else if(airline.equals("UIA")) {
             img = R.drawable.uia;
+        }else if(airline.equals("Travel Service")) {
+            img = R.drawable.travelservice;
+        }else if(airline.equals("7 Islands")) {
+            img = R.drawable.sevenislands;
+        }else if(airline.equals("Blue Bird")) {
+            img = R.drawable.bluebird;
+        }else if(airline.equals("Ecco")) {
+            img = R.drawable.ecco;
+        }else if(airline.equals("Exim")) {
+            img = R.drawable.exim;
+        }else if(airline.equals("Grecos")) {
+            img = R.drawable.grecos;
+        }else if(airline.equals("Itaka")) {
+            img = R.drawable.itaka;
+        }else if(airline.equals("Matimpex")) {
+            img = R.drawable.matimpex;
+        }else if(airline.equals("Neckermann")) {
+            img = R.drawable.neckermann;
+        }else if(airline.equals("Rainbow")) {
+            img = R.drawable.rainbow;
+        }else if(airline.equals("Small Planet")) {
+            img = R.drawable.smallplanet;
+        }else if(airline.equals("SunFun")) {
+            img = R.drawable.sf;
+        }else if(airline.equals("TUI")) {
+            img = R.drawable.tui;
+        }else if(airline.equals("Wezyr")) {
+            img = R.drawable.wezyr;
+        }else if(airline.equals("Wizz Tours")) {
+            img = R.drawable.wizztours;
+        }else if(airline.equals("Sprint Air")) {
+            img = R.drawable.sprint;
         }
+        return img;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.mItem = mValues.get(position);
+        holder.mDestination.setText(mValues.get(position).destination);
+        int img = getAirlineImg(mValues.get(position).freighter);
         holder.mFreighter.setImageResource(img);
         holder.mExpTime.setText(mValues.get(position).exp_time);
         if(holder.mFlight!=null) {
