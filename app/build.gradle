@@ -29,5 +29,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:1.0.4'
+    compile 'com.koushikdutta.async:androidasync:2.1.9'
     testCompile 'junit:junit:4.12'
 }
