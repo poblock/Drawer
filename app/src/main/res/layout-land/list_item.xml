@@ -16,7 +16,7 @@
         android:layout_gravity="center_vertical|center_horizontal|start"
         android:layout_marginStart="@dimen/item_table_margin_start"
         android:layout_marginLeft="@dimen/item_table_margin_start"
-        android:textStyle="normal|bold"
+        android:textStyle="normal"
         />
 
     <TextView

@@ -74,6 +74,42 @@ public class Section extends StatelessSection {
             img = R.drawable.sas;
         }else if(airline.equals("UIA")) {
             img = R.drawable.uia;
+        }else if(airline.equals("Travel Service")) {
+            img = R.drawable.travelservice;
+        }else if(airline.equals("7 Islands")) {
+            img = R.drawable.sevenislands;
+        }else if(airline.equals("Blue Bird")) {
+            img = R.drawable.bluebird;
+        }else if(airline.equals("Ecco")) {
+            img = R.drawable.ecco;
+        }else if(airline.equals("Exim")) {
+            img = R.drawable.exim;
+        }else if(airline.equals("Grecos")) {
+            img = R.drawable.grecos;
+        }else if(airline.equals("Itaka")) {
+            img = R.drawable.itaka;
+        }else if(airline.equals("Matimpex")) {
+            img = R.drawable.matimpex;
+        }else if(airline.equals("Neckermann")) {
+            img = R.drawable.neckermann;
+        }else if(airline.equals("Rainbow")) {
+            img = R.drawable.rainbow;
+        }else if(airline.equals("Small Planet")) {
+            img = R.drawable.smallplanet;
+        }else if(airline.equals("SunFun")) {
+            img = R.drawable.sf;
+        }else if(airline.equals("TUI")) {
+            img = R.drawable.tui;
+        }else if(airline.equals("Wezyr")) {
+            img = R.drawable.wezyr;
+        }else if(airline.equals("Wizz Tours")) {
+            img = R.drawable.wizztours;
+        }else if(airline.equals("Sprint Air")) {
+            img = R.drawable.sprint;
+        }else if(airline.equals("AlMasria")) {
+            img = R.drawable.uj;
+        }else if(airline.equals("Corendon")) {
+            img = R.drawable.xc;
         }
         itemHolder.mFreighter.setImageResource(img);
         itemHolder.mExpTime.setText(mValues.get(position).exp_time);

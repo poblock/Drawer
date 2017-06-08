@@ -1,23 +1,23 @@
-package pl.poblocki.drawer;
+package pl.poblocki.drawer.view;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import pl.poblocki.drawer.R;
+import pl.poblocki.drawer.manager.FlightManager;
+
 public class ButtonFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private int pageID;
+    private TextView txt;
 
 //    private OnFragmentInteractionListener mListener;
     public ButtonFragment() { }
@@ -38,37 +38,54 @@ public class ButtonFragment extends Fragment {
         }
     }
 
+    private void fetchData() {
+        FlightManager.getInstance().getData(callback);
+    }
+
+    public interface OnDataLoaded {
+        void OnUpdate(String msg);
+    }
+
+    private OnDataLoaded callback = new OnDataLoaded() {
+        @Override
+        public void OnUpdate(String msg) {
+//            txt.append(msg);
+        }
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_button, container, false);
         Button b = (Button) view.findViewById(R.id.button);
-        TextView txt = (TextView) view.findViewById(R.id.textView);
+
+        txt = (TextView) view.findViewById(R.id.textView);
         txt.setText("Strona "+pageID);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar snackbar = Snackbar
-                        .make(view, "Welcome in "+pageID, Snackbar.LENGTH_LONG);
-                snackbar.show();
-            }
-        });
 
         switch (pageID) {
             case R.id.nav_before_flight :
 
-                break;
             case R.id.nav_destinations_map :
 
-                break;
             case R.id.nav_parking :
 
-                break;
             case R.id.nav_terminal :
-
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar snackbar = Snackbar
+                                .make(view, "Welcome in "+pageID, Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                    }
+                });
                 break;
             case R.id.nav_transportation :
-
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        fetchData();
+                    }
+                });
                 break;
         }
 

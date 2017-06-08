@@ -1,10 +1,8 @@
-package pl.poblocki.drawer;
+package pl.poblocki.drawer.view;
 
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,8 +11,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+
+import pl.poblocki.drawer.R;
 
 
 public class FlightsFragment extends Fragment {
@@ -60,23 +58,12 @@ public class FlightsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        if (context instanceof ButtonFragment.OnFragmentInteractionListener) {
-//            mListener = (ButtonFragment.OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-//        mListener = null;
     }
-
-//    public interface OnFragmentInteractionListener {
-//        void onFragmentInteraction(Uri uri);
-//    }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -88,7 +75,7 @@ public class FlightsFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            return ItemPagerFragment.newInstance("Pozycja "+position);
+            return ItemPagerFragment.newInstance();
         }
 
         @Override

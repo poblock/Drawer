@@ -1,13 +1,7 @@
-package pl.poblocki.drawer;
+package pl.poblocki.drawer.view;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,13 +11,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class DrawerActivity extends AppCompatActivity
+import pl.poblocki.drawer.R;
+import pl.poblocki.drawer.demo.AlbumsFragment;
+import pl.poblocki.drawer.service.ServiceFragment;
+
+public class AirportActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -35,6 +34,14 @@ public class DrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Fragment f = AlbumsFragment.newInstance();
+        if(f!=null) {
+            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.content_frame, f);
+            ft.commit();
+        }
     }
 
     @Override
@@ -75,6 +82,8 @@ public class DrawerActivity extends AppCompatActivity
         Fragment f = null;
         if(item.getItemId()==R.id.nav_arrivals || item.getItemId()==R.id.nav_departures) {
             f = FlightsFragment.newInstance(item.getItemId());
+        } else if(item.getItemId()==R.id.nav_terminal) {
+            f = ServiceFragment.newInstance("","");
         } else {
             f = ButtonFragment.newInstance(item.getItemId());
         }
