@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.connection;
+package pl.poblocki.drawer.network;
 
 import com.koushikdutta.async.http.AsyncHttpClient;
 import com.koushikdutta.async.http.WebSocket;

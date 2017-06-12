@@ -5,7 +5,7 @@ import android.util.Log;
 import com.koushikdutta.async.http.WebSocket;
 
 import pl.poblocki.drawer.view.ButtonFragment;
-import pl.poblocki.drawer.connection.WSConnect;
+import pl.poblocki.drawer.network.WSConnect;
 
 /**
  * Created by krzysztof.poblocki on 2017-06-07.
