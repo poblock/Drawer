@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.koushikdutta.async.http.WebSocket;
 
+import javax.inject.Inject;
+
 import pl.poblocki.drawer.view.ButtonFragment;
 import pl.poblocki.drawer.network.WSConnect;
 
@@ -13,21 +15,23 @@ import pl.poblocki.drawer.network.WSConnect;
 
 public class FlightManager {
 
-    private static FlightManager instance;
-    private FlightDecoder decoder;
-    private WSConnect connection;
+//    private static FlightManager instance;
+    @Inject
+    FlightDecoder decoder;
+    @Inject
+    WSConnect connection;
 
-    private FlightManager() {
-        connection = new WSConnect();
-        decoder = new FlightDecoder();
-    }
+//    public FlightManager() {
+//        connection = new WSConnect();
+//        decoder = new FlightDecoder();
+//    }
 
-    public static FlightManager getInstance() {
-        if(instance==null) {
-            instance = new FlightManager();
-        }
-        return instance;
-    }
+//    public static FlightManager getInstance() {
+//        if(instance==null) {
+//            instance = new FlightManager();
+//        }
+//        return instance;
+//    }
 
     public void getData(final ButtonFragment.OnDataLoaded dataCallback) {
         WebSocket.StringCallback callback = new WebSocket.StringCallback() {

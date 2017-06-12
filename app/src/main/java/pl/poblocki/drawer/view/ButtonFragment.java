@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.manager.FlightManager;
 
@@ -19,7 +21,9 @@ public class ButtonFragment extends Fragment {
     private int pageID;
     private TextView txt;
 
-//    private OnFragmentInteractionListener mListener;
+    @Inject
+    FlightManager manager;
+
     public ButtonFragment() { }
 
     public static ButtonFragment newInstance(int param1) {
@@ -39,7 +43,7 @@ public class ButtonFragment extends Fragment {
     }
 
     private void fetchData() {
-        FlightManager.getInstance().getData(callback);
+        manager.getData(callback);
     }
 
     public interface OnDataLoaded {
