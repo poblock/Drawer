@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.manager.FlightManager;
 
@@ -24,7 +25,9 @@ public class ButtonFragment extends Fragment {
     @Inject
     FlightManager manager;
 
-    public ButtonFragment() { }
+    public ButtonFragment() {
+        AirportApplication.component().inject(this);
+    }
 
     public static ButtonFragment newInstance(int param1) {
         ButtonFragment fragment = new ButtonFragment();
@@ -43,7 +46,7 @@ public class ButtonFragment extends Fragment {
     }
 
     private void fetchData() {
-        manager.getData(callback);
+        manager.getAirports();
     }
 
     public interface OnDataLoaded {

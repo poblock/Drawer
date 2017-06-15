@@ -1,22 +1,57 @@
 package pl.poblocki.drawer.di;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import pl.poblocki.drawer.manager.FlightManager;
+import pl.poblocki.drawer.network.API;
+import retrofit2.Converter;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class NetworkModule {
-    private FlightManager manager;
 
-    public NetworkModule(FlightManager manager) {
-        this.manager = manager;
+    @Provides
+    @Named("URL")
+    String provideBaseUrlString() {
+        return "https://agile-dawn-87098.herokuapp.com";
     }
 
     @Provides
     @Singleton
-    public FlightManager provideManager() {
-        return manager;
+    Converter.Factory provideGsonConverter() {
+        return GsonConverterFactory.create();
+    }
+
+    @Provides
+    @Singleton
+    OkHttpClient provideOkHttpClient() {
+        return new OkHttpClient();
+    }
+
+    @Provides
+    @Singleton
+    Retrofit provideRetrofit(Converter.Factory converter, OkHttpClient client, @Named("URL") String baseUrl) {
+        return new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(converter)
+                .client(client)
+                .build();
+    }
+
+    @Provides
+    @Singleton
+    API provideAPI(Retrofit retrofit) {
+        return retrofit.create(API.class);
+    }
+
+    @Provides
+    @Singleton
+    FlightManager provideManager(API serverAPI) {
+        return new FlightManager(serverAPI);
     }
 }

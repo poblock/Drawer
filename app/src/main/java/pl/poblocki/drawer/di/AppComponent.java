@@ -6,13 +6,15 @@ import javax.inject.Singleton;
 import dagger.Component;
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.view.AirportActivity;
+import pl.poblocki.drawer.view.ButtonFragment;
 
 @Singleton
 @Component(modules = {AppModule.class, NetworkModule.class})
 public interface AppComponent {
     void inject(AirportActivity mainActivity);
+    void inject(ButtonFragment buttonFragment);
 
-    static final class Initializer {
+    final class Initializer {
         private Initializer() {
         }
 
