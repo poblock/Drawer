@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import pl.poblocki.drawer.R;
-import pl.poblocki.drawer.list.Section;
+import pl.poblocki.drawer.list.FlightsSection;
 
 
 public class ItemPagerFragment extends Fragment {
@@ -38,8 +38,8 @@ public class ItemPagerFragment extends Fragment {
         recyclerView.setLayoutManager(manager);
 
         SectionedRecyclerViewAdapter sectionAdapter = new SectionedRecyclerViewAdapter();
-        sectionAdapter.addSection(new Section(getContext(), false));
-        sectionAdapter.addSection(new Section(getContext(), true));
+        sectionAdapter.addSection(new FlightsSection(getContext(), false));
+        sectionAdapter.addSection(new FlightsSection(getContext(), true));
 
         recyclerView.setAdapter(sectionAdapter);
         return view;

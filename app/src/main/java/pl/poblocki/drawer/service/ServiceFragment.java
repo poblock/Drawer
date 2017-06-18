@@ -15,16 +15,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import pl.poblocki.drawer.R;
-import pl.poblocki.drawer.list.Section;
 
 public class ServiceFragment extends Fragment implements ServiceConnection, View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";

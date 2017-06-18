@@ -5,14 +5,10 @@ import android.util.Log;
 import com.koushikdutta.async.http.WebSocket;
 
 import java.util.List;
-import java.util.stream.Stream;
-
-import javax.inject.Inject;
 
 import pl.poblocki.drawer.model.Airport;
 import pl.poblocki.drawer.network.API;
 import pl.poblocki.drawer.view.ButtonFragment;
-import pl.poblocki.drawer.network.WSConnect;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

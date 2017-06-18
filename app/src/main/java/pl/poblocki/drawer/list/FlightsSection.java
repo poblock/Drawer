@@ -18,13 +18,13 @@ import pl.poblocki.drawer.R;
  * Created by krzysztof.poblocki on 2016-12-27.
  */
 
-public class Section extends StatelessSection {
+public class FlightsSection extends StatelessSection {
 
     private boolean isNextDay;
     private final List<Content.DummyItem> mValues;
     private Context context;
 
-    public Section(Context context, boolean isNextDay) {
+    public FlightsSection(Context context, boolean isNextDay) {
         super(R.layout.section_header, R.layout.list_item);
         this.mValues = Content.makeList(isNextDay);
         this.isNextDay = isNextDay;
