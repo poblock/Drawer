@@ -2,7 +2,7 @@ package pl.poblocki.drawer;
 
 import android.app.Application;
 
-import pl.poblocki.drawer.di.AppComponent;
+import pl.poblocki.drawer.di.component.AppComponent;
 
 /**
  * Created by Iza on 10.06.2017.

@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:gravity="center_horizontal"
-    android:layout_gravity="center_horizontal"
-    android:layout_height="52dp">
-        <TextView
-            android:id="@+id/content_destination"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <data>
+                <import type="pl.poblocki.drawer.viewmodel.FlightViewModel" />
+                <variable name="flight" type="FlightViewModel" />
+        </data>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/item_table"
-            android:textAlignment="viewStart"
-            android:text="Frankfurt"
-            android:layout_gravity="center_vertical|center_horizontal|start"
-            android:layout_marginStart="@dimen/item_table_margin_start"
-            android:layout_marginLeft="@dimen/item_table_margin_start"
-            android:textStyle="normal" />
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="52dp">
+                <TextView
+                    android:id="@+id/content_destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/item_table"
+                    android:textAlignment="viewStart"
+                    android:text="@{flight.destination}"
+                    android:layout_gravity="center_vertical|center_horizontal|start"
+                    android:layout_marginStart="@dimen/item_table_margin_start"
+                    android:layout_marginLeft="@dimen/item_table_margin_start"
+                    android:textStyle="normal" />
 
-        <ImageView
-            android:id="@+id/content_freighter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            app:srcCompat="@drawable/airline"
-            android:layout_weight="0"
-            android:minWidth="90dp"
-            android:scaleType="fitCenter" />
+                <ImageView
+                    android:id="@+id/content_freighter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
 
-        <TextView
-            android:id="@+id/content_exp_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/item_table"
-            android:text="23:13"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginStart="4dp"
-            android:layout_gravity="center_vertical|center_horizontal|end"
-            android:gravity="center_vertical|center_horizontal"
-            android:minWidth="60dp"
-            android:layout_weight="0"/>
-</LinearLayout>
+                    android:layout_weight="0"
+                    android:minWidth="90dp"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/content_exp_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/item_table"
+                    android:text="@{flight.exp_time}"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_gravity="center_vertical|center_horizontal|end"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:minWidth="60dp"
+                    android:layout_weight="0"/>
+        </LinearLayout>
+</layout>
+

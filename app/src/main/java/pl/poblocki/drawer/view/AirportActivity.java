@@ -16,21 +16,19 @@ import javax.inject.Inject;
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.demo.AlbumsFragment;
+import pl.poblocki.drawer.di.module.ActivityModule;
 import pl.poblocki.drawer.manager.FlightManager;
 import pl.poblocki.drawer.service.ServiceFragment;
 
 public class AirportActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Inject
-    FlightManager manager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
 
-        AirportApplication.component().inject(this);
+        AirportApplication.component().plus(new ActivityModule(this)).inject(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,7 +54,7 @@ public class AirportActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer!=null && drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();

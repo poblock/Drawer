@@ -6,7 +6,9 @@ import com.koushikdutta.async.http.WebSocket;
 
 import java.util.List;
 
+import pl.poblocki.drawer.list.Content;
 import pl.poblocki.drawer.model.Airport;
+import pl.poblocki.drawer.model.Flight;
 import pl.poblocki.drawer.network.API;
 import pl.poblocki.drawer.view.ButtonFragment;
 import retrofit2.Call;
@@ -71,6 +73,10 @@ public class FlightManager {
                 }
             }
         };
-//        connection.connect(callback);
+    }
+
+    public List<Flight> getFlights() {
+        return Content.makeMockList(true);
+//        return null;
     }
 }

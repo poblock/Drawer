@@ -1,18 +1,16 @@
-package pl.poblocki.drawer.di;
-
-
-import javax.inject.Singleton;
+package pl.poblocki.drawer.di.component;
 
 import dagger.Component;
 import pl.poblocki.drawer.AirportApplication;
-import pl.poblocki.drawer.view.AirportActivity;
-import pl.poblocki.drawer.view.ButtonFragment;
+import pl.poblocki.drawer.di.module.ActivityModule;
+import pl.poblocki.drawer.di.module.AppModule;
+import pl.poblocki.drawer.di.module.NetworkModule;
+import pl.poblocki.drawer.di.scope.ApplicationScope;
 
-@Singleton
+@ApplicationScope
 @Component(modules = {AppModule.class, NetworkModule.class})
 public interface AppComponent {
-    void inject(AirportActivity mainActivity);
-    void inject(ButtonFragment buttonFragment);
+    ActivityComponent plus(ActivityModule activityModule);
 
     final class Initializer {
         private Initializer() {

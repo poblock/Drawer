@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
+import pl.poblocki.drawer.di.module.ActivityModule;
 import pl.poblocki.drawer.manager.FlightManager;
 
 public class ButtonFragment extends Fragment {
@@ -26,7 +27,7 @@ public class ButtonFragment extends Fragment {
     FlightManager manager;
 
     public ButtonFragment() {
-        AirportApplication.component().inject(this);
+        AirportApplication.component().plus(new ActivityModule(getActivity())).inject(this);
     }
 
     public static ButtonFragment newInstance(int param1) {

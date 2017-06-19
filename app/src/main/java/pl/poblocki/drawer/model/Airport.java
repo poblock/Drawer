@@ -58,4 +58,16 @@ public class Airport {
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
+
+    @Override
+    public String toString() {
+        return "Airport{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                '}';
+    }
 }

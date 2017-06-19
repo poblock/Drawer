@@ -13,6 +13,7 @@ import java.util.List;
 
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import pl.poblocki.drawer.R;
+import pl.poblocki.drawer.model.Flight;
 
 /**
  * Created by krzysztof.poblocki on 2016-12-27.
@@ -21,12 +22,12 @@ import pl.poblocki.drawer.R;
 public class FlightsSection extends StatelessSection {
 
     private boolean isNextDay;
-    private final List<Content.DummyItem> mValues;
+    private final List<Flight> mValues;
     private Context context;
 
     public FlightsSection(Context context, boolean isNextDay) {
         super(R.layout.section_header, R.layout.list_item);
-        this.mValues = Content.makeList(isNextDay);
+        this.mValues = Content.makeMockList(isNextDay);
         this.isNextDay = isNextDay;
         this.context = context;
     }
@@ -51,8 +52,8 @@ public class FlightsSection extends StatelessSection {
             }
         });
         itemHolder.mItem = mValues.get(position);
-        itemHolder.mDestination.setText(mValues.get(position).destination);
-        String airline = mValues.get(position).freighter;
+        itemHolder.mDestination.setText(mValues.get(position).getDestination());
+        String airline = mValues.get(position).getFreighter();
         int img = R.drawable.airline;
         if(airline.equals("Wizzair")) {
             img = R.drawable.wizzair;
@@ -110,17 +111,21 @@ public class FlightsSection extends StatelessSection {
             img = R.drawable.uj;
         }else if(airline.equals("Corendon")) {
             img = R.drawable.xc;
+        }else if(airline.equals("Adria Airways")) {
+            img = R.drawable.e4;
+        }else if(airline.equals("Enter Air")) {
+            img = R.drawable.jp;
         }
         itemHolder.mFreighter.setImageResource(img);
-        itemHolder.mExpTime.setText(mValues.get(position).exp_time);
+        itemHolder.mExpTime.setText(mValues.get(position).getExp_time());
         if(itemHolder.mFlight!=null) {
-            itemHolder.mFlight.setText(mValues.get(position).flight);
+            itemHolder.mFlight.setText(mValues.get(position).getFlight());
         }
         if(itemHolder.mTime!=null) {
-            itemHolder.mTime.setText(mValues.get(position).time);
+            itemHolder.mTime.setText(mValues.get(position).getTime());
         }
         if(itemHolder.mRemarks!=null) {
-            itemHolder.mRemarks.setText(mValues.get(position).remarks);
+            itemHolder.mRemarks.setText(mValues.get(position).getStatus());
         }
         itemHolder.setBackground(position);
     }
@@ -166,7 +171,7 @@ public class FlightsSection extends StatelessSection {
         public final TextView mTime;
         public final TextView mExpTime;
         public final TextView mRemarks;
-        public Content.DummyItem mItem;
+        public Flight mItem;
 
         public ItemViewHolder(View view) {
             super(view);
