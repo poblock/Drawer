@@ -5,8 +5,12 @@ package pl.poblocki.drawer.model;
  */
 
 public class DBTime {
+    private long id;
     private String dbName;
     private String dbTime;
+
+    public DBTime() {
+    }
 
     public DBTime(String dbName, String dbTime) {
         this.dbName = dbName;
@@ -27,5 +31,13 @@ public class DBTime {
 
     public void setDbTime(String dbTime) {
         this.dbTime = dbTime;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

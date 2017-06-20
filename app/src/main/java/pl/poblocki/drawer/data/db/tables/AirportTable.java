@@ -8,17 +8,23 @@ import android.provider.BaseColumns;
  */
 
 public class AirportTable {
-    public static final String TABLE_NAME = "category";
+    public static final String TABLE_NAME = "airports";
 
-    public static class CategoryColumns implements BaseColumns {
-        public static final String NAME = "name";
+    public static class AirportColumns implements BaseColumns {
+        public static final String CODE = "code";
+        public static final String COUNTRY = "country";
+        public static final String LATITUDE = "latitude";
+        public static final String LONGITUDE = "longitude";
     }
 
     public static void onCreate(SQLiteDatabase db) {
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE TABLE " + AirportTable.TABLE_NAME + " (");
         sb.append(BaseColumns._ID + " INTEGER PRIMARY KEY, ");
-        sb.append(AirportTable.CategoryColumns.NAME + " TEXT UNIQUE NOT NULL");
+        sb.append(AirportColumns.CODE + " TEXT UNIQUE NOT NULL, ");
+        sb.append(AirportColumns.COUNTRY + " TEXT NOT NULL, ");
+        sb.append(AirportColumns.LATITUDE + " TEXT NOT NULL, ");
+        sb.append(AirportColumns.LONGITUDE + " TEXT NOT NULL");
         sb.append(");");
         db.execSQL(sb.toString());
     }

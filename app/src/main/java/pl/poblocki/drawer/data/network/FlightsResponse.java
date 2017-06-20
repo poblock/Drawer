@@ -1,6 +1,4 @@
-package pl.poblocki.drawer.model;
-
-import java.util.List;
+package pl.poblocki.drawer.data.network;
 
 /**
  * Created by Iza on 15.06.2017.

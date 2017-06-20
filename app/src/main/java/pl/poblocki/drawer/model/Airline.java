@@ -5,12 +5,31 @@ package pl.poblocki.drawer.model;
  */
 
 public class Airline {
+    private long id;
     private String airlineName;
     private String airlineCode;
+
+    public Airline() {
+
+    }
+
+    public Airline(long id, String airlineCode, String airlineName) {
+        this.id = id;
+        this.airlineCode = airlineCode;
+        this.airlineName = airlineName;
+    }
 
     public Airline(String airlineCode, String airlineName) {
         this.airlineCode = airlineCode;
         this.airlineName = airlineName;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getAirlineCode() {

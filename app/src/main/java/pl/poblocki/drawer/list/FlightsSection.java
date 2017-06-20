@@ -11,9 +11,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.model.Flight;
+import pl.poblocki.drawer.section.StatelessSection;
 
 /**
  * Created by krzysztof.poblocki on 2016-12-27.

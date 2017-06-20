@@ -23,4 +23,5 @@
     <string name="header_time">Czas</string>
     <string name="section_today">Dzisiaj</string>
     <string name="section_tomorrow">Następny dzień</string>
+    <string name="WAW">Warszawa</string>
 </resources>

@@ -8,25 +8,23 @@ import android.provider.BaseColumns;
  */
 
 public class ConnectionTable {
-    public static final String TABLE_NAME = "movie_category";
+    public static final String TABLE_NAME = "connections";
 
-    public static class MovieCategoryColumns {
-        public static final String MOVIE_ID = "movie_id";
-        public static final String CATEGORY_ID = "category_id";
+    public static class ConnectionColumns {
+        public static final String AIRPORT_ID = "airport_id";
+        public static final String AIRLINE_ID = "airline_id";
     }
 
     public static void onCreate(SQLiteDatabase db) {
         StringBuilder sb = new StringBuilder();
-
         sb.append("CREATE TABLE " + ConnectionTable.TABLE_NAME + " (");
-
-        sb.append(MovieCategoryColumns.MOVIE_ID + " INTEGER NOT NULL, ");
-        sb.append(MovieCategoryColumns.CATEGORY_ID + " INTEGER NOT NULL, ");
-        sb.append("FOREIGN KEY(" + MovieCategoryColumns.MOVIE_ID + ") REFERENCES " + AirportTable.TABLE_NAME + "("
+        sb.append(ConnectionColumns.AIRPORT_ID + " INTEGER NOT NULL, ");
+        sb.append(ConnectionColumns.AIRLINE_ID + " INTEGER NOT NULL, ");
+        sb.append("FOREIGN KEY(" + ConnectionColumns.AIRPORT_ID + ") REFERENCES " + AirportTable.TABLE_NAME + "("
                 + BaseColumns._ID + "), ");
-        sb.append("FOREIGN KEY(" + MovieCategoryColumns.CATEGORY_ID + ") REFERENCES " + AirlineTable.TABLE_NAME + "("
+        sb.append("FOREIGN KEY(" + ConnectionColumns.AIRLINE_ID + ") REFERENCES " + AirlineTable.TABLE_NAME + "("
                 + BaseColumns._ID + ") , ");
-        sb.append("PRIMARY KEY ( " + MovieCategoryColumns.MOVIE_ID + ", " + MovieCategoryColumns.CATEGORY_ID + ")");
+        sb.append("PRIMARY KEY ( " + ConnectionColumns.AIRPORT_ID + ", " + ConnectionColumns.AIRLINE_ID + ")");
         sb.append(");");
         db.execSQL(sb.toString());
     }

@@ -15,10 +15,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.databinding.ListItemBinding;
 import pl.poblocki.drawer.di.scope.ForActivity;
+import pl.poblocki.drawer.section.StatelessSection;
 import pl.poblocki.drawer.viewmodel.FlightViewModel;
 import pl.poblocki.drawer.viewmodel.FlightsListViewModel;
 

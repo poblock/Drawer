@@ -5,42 +5,62 @@ package pl.poblocki.drawer.model;
  */
 
 public class Airport {
-    private String code;
-    private String name;
-    private String country;
+    private long id;
+    private String airportCode;
+    private String airportName;
+    private String countryCode;
     private String latitude;
     private String longitude;
 
-    public Airport(String name, String code, String country, String latitude, String longitude) {
-        setName(name);
-        setCode(code);
-        setCountry(country);
+    public Airport() {
+
+    }
+
+    public Airport(String airportCode, String airportCountry, String latitude, String longitude) {
+        setCode(airportCode);
+        setCountry(airportCountry);
         setLatitude(latitude);
         setLongitude(longitude);
     }
 
+    public Airport(String airportName, String airportCode, String airportCountry, String latitude, String longitude) {
+        setName(airportName);
+        setCode(airportCode);
+        setCountry(airportCountry);
+        setLatitude(latitude);
+        setLongitude(longitude);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getCode() {
-        return code;
+        return airportCode;
     }
 
     public void setCode(String code) {
-        this.code = code;
+        this.airportCode = code;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.airportName = name;
     }
 
     public String getName() {
-        return name;
+        return airportName;
     }
 
     public String getCountry() {
-        return country;
+        return countryCode;
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        this.countryCode = country;
     }
 
     public String getLatitude() {
@@ -63,9 +83,9 @@ public class Airport {
     @Override
     public String toString() {
         return "Airport{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", country='" + country + '\'' +
+                "airportCode='" + airportCode + '\'' +
+                ", airportName='" + airportName + '\'' +
+                ", countryCode='" + countryCode + '\'' +
                 ", latitude='" + latitude + '\'' +
                 ", longitude='" + longitude + '\'' +
                 '}';

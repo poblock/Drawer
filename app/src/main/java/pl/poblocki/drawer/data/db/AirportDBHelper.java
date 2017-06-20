@@ -1,104 +1,73 @@
 package pl.poblocki.drawer.data.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.util.Log;
+
+import pl.poblocki.drawer.data.db.tables.AirlineTable;
+import pl.poblocki.drawer.data.db.tables.AirportTable;
+import pl.poblocki.drawer.data.db.tables.ConnectionTable;
+import pl.poblocki.drawer.data.db.tables.DBTimeTable;
+import pl.poblocki.drawer.model.Airport;
 
 public class AirportDBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Airport.db";
-    private static final String TEXT_TYPE = " TEXT";
-    private static final String COMMA_SEP = ",";
 
-    public static abstract class AirportEntry implements BaseColumns {
-        public static final String TABLE_NAME = "airports";
-        public static final String COLUMN_NAME_ID = "id";
-        public static final String COLUMN_NAME_NAME = "name";
-        public static final String COLUMN_NAME_CODE = "code";
-        public static final String COLUMN_NAME_COUNTRY = "country";
-        public static final String COLUMN_NAME_LATITUDE = "latitude";
-        public static final String COLUMN_NAME_LONGITUDE = "longitude";
-    }
-
-    public static abstract class TimeEntry implements BaseColumns {
-        public static final String TABLE_NAME = "time";
-        public static final String COLUMN_NAME_ID = "id";
-        public static final String COLUMN_NAME_NAME = "name";
-        public static final String COLUMN_NAME_TIME = "time";
-    }
-
-    public static abstract class CountryEntry implements BaseColumns {
-        public static final String TABLE_NAME = "countries";
-        public static final String COLUMN_NAME_ID = "id";
-        public static final String COLUMN_NAME_NAME = "name";
-        public static final String COLUMN_NAME_CODE = "code";
-    }
-
-    public static abstract class AirlineEntry implements BaseColumns {
-        public static final String TABLE_NAME = "airlines";
-        public static final String COLUMN_NAME_ID = "id";
-        public static final String COLUMN_NAME_NAME = "name";
-        public static final String COLUMN_NAME_CODE = "code";
-        public static final String COLUMN_NAME_IMAGE = "image";
-    }
-
-    public static abstract class FlightEntry implements BaseColumns {
-        public static final String TABLE_NAME = "flights";
-        public static final String COLUMN_NAME_ID = "id";
-        public static final String COLUMN_NAME_AIRPORT_ID = "airport_id";
-        public static final String COLUMN_NAME_AIRLINE_ID = "airline_id";
-    }
-
-    public static String[] selectAllDBTime  = {
-            TimeEntry.COLUMN_NAME_ID,
-            TimeEntry.COLUMN_NAME_NAME,
-            TimeEntry.COLUMN_NAME_TIME
-    };
-
-    public static String[] selectAllAirports  = {
-            AirportEntry.COLUMN_NAME_ID,
-            AirportEntry.COLUMN_NAME_NAME,
-            AirportEntry.COLUMN_NAME_CODE,
-            AirportEntry.COLUMN_NAME_COUNTRY,
-            AirportEntry.COLUMN_NAME_LATITUDE,
-            AirportEntry.COLUMN_NAME_LONGITUDE
-    };
-
-    private static final String SQL_CREATE_AIRPORT_ENTRIES =
-            "CREATE TABLE " + AirportEntry.TABLE_NAME + " (" +
-                    AirportEntry._ID + TEXT_TYPE + " PRIMARY KEY," +
-                    AirportEntry.COLUMN_NAME_ID + TEXT_TYPE + COMMA_SEP +
-                    AirportEntry.COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
-                    AirportEntry.COLUMN_NAME_CODE + TEXT_TYPE + COMMA_SEP +
-                    AirportEntry.COLUMN_NAME_COUNTRY + TEXT_TYPE + COMMA_SEP +
-                    AirportEntry.COLUMN_NAME_LATITUDE + TEXT_TYPE + COMMA_SEP +
-                    AirportEntry.COLUMN_NAME_LONGITUDE + TEXT_TYPE +
-                    " )";
-
-    private static final String SQL_CREATE_DBTIME_ENTRIES =
-            "CREATE TABLE " + TimeEntry.TABLE_NAME + " (" +
-                    TimeEntry._ID + TEXT_TYPE + " PRIMARY KEY," +
-                    TimeEntry.COLUMN_NAME_ID + TEXT_TYPE + COMMA_SEP +
-                    TimeEntry.COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
-                    TimeEntry.COLUMN_NAME_TIME + TEXT_TYPE + COMMA_SEP +
-                    " )";
-    
     public AirportDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE_AIRPORT_ENTRIES);
-        db.execSQL(SQL_CREATE_DBTIME_ENTRIES);
+    @Override
+    public void onOpen(final SQLiteDatabase db) {
+        super.onOpen(db);
+        if (!db.isReadOnly()) {
+            // Wersje SQLite'a starsze niż 3.6.19 nie obsługują kluczy obcych. Nie
+            // robią tego także wersje skompilowane z opcją SQLITE_OMIT_FOREIGN_KEY
+            // http://www.sqlite.org/foreignkeys.html#fk_enable
+            //
+            // Należy włączyć obsługę kluczy obcych, jeśli jest to możliwe
+            // (i tak powinna być włączona, jednak warto się upewnić).
+            db.execSQL("PRAGMA foreign_keys=ON;");
+
+            // Sprawdzanie, czy klucze obce są włączone. Jeśli zapytanie nie zwraca danych, nie
+            // należy nawet PRÓBOWAĆ korzystaćz takich kluczy.
+            Cursor c = db.rawQuery("PRAGMA foreign_keys", null);
+            if (c.moveToFirst()) {
+                int result = c.getInt(0);
+                Log.i("DB", "Obsługa kluczy obcych (1 = tak, 0 = nie): " + result);
+            } else {
+                // Można zastosować to podejście w metodzie onCreate i na przykład nie używać
+                // kluczy obcych, jeśli nie są dostępne.
+                Log.i("DB", "BRAK obsługi kluczy obcych");
+                // W razie konieczności tu można przełączyć się na kod
+                // oparty na wyzwalaczach.
+            }
+            if (!c.isClosed()) {
+                c.close();
+            }
+        }
     }
 
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Not required as at version 1
+    @Override
+    public void onCreate(final SQLiteDatabase db) {
+        Log.i("DB", "Tworzenie bazy w metodzie onCreate klasy DataHelper.OpenHelper " + DATABASE_NAME);
+        DBTimeTable.onCreate(db);
+        AirlineTable.onCreate(db);
+        AirportTable.onCreate(db);
+        ConnectionTable.onCreate(db);
     }
 
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Not required as at version 1
+    @Override
+    public void onUpgrade(final SQLiteDatabase db, final int oldVersion, final int newVersion) {
+        Log.i("DB", "SQLiteOpenHelper onUpgrade - oldVersion:" + oldVersion + " newVersion:" + newVersion);
+        DBTimeTable.onUpgrade(db, oldVersion, newVersion);
+        AirlineTable.onUpgrade(db, oldVersion, newVersion);
+        AirportTable.onUpgrade(db, oldVersion, newVersion);
+        ConnectionTable.onUpgrade(db, oldVersion, newVersion);
     }
 }

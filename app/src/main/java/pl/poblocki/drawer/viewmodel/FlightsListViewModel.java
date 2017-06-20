@@ -16,7 +16,7 @@ import pl.poblocki.drawer.support.ListBinder;
  * Created by krzysztof.poblocki on 2017-06-08.
  */
 
-@ActivityScope
+//@ActivityScope
 public class FlightsListViewModel {
     private final ListBinder<FlightViewModel> listBinder;
     private final FlightManager flightManager;

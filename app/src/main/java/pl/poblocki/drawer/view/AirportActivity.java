@@ -3,6 +3,7 @@ package pl.poblocki.drawer.view;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,16 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import javax.inject.Inject;
-
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.demo.AlbumsFragment;
 import pl.poblocki.drawer.di.module.ActivityModule;
-import pl.poblocki.drawer.manager.FlightManager;
 import pl.poblocki.drawer.service.ServiceFragment;
 
-public class AirportActivity extends AppCompatActivity
+public class AirportActivity
+        extends AppCompatActivity
+//        extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -28,7 +28,8 @@ public class AirportActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
 
-        AirportApplication.component().plus(new ActivityModule(this)).inject(this);
+        AirportApplication.component()//.plus(new ActivityModule(this))
+                .inject(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

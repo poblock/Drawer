@@ -8,9 +8,10 @@ import android.provider.BaseColumns;
  */
 
 public class AirlineTable {
-    public static final String TABLE_NAME = "category";
+    public static final String TABLE_NAME = "airlines";
 
-    public static class CategoryColumns implements BaseColumns {
+    public static class AirlineColumns implements BaseColumns {
+        public static final String CODE = "code";
         public static final String NAME = "name";
     }
 
@@ -18,7 +19,8 @@ public class AirlineTable {
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE TABLE " + AirlineTable.TABLE_NAME + " (");
         sb.append(BaseColumns._ID + " INTEGER PRIMARY KEY, ");
-        sb.append(CategoryColumns.NAME + " TEXT UNIQUE NOT NULL");
+        sb.append(AirlineColumns.CODE + " TEXT UNIQUE NOT NULL, ");
+        sb.append(AirlineColumns.NAME + " TEXT NOT NULL");
         sb.append(");");
         db.execSQL(sb.toString());
     }
