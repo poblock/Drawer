@@ -74,7 +74,10 @@ public class ButtonFragment extends Fragment {
                     if(repository!=null) {
                         List<Airport> result = repository.getAirports();
                         if(result!=null) {
-                            String str = result.toString();
+                            String str = "";
+                            for(Airport a : result) {
+                                str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
+                            }
                             txt.setText(str);
                         } else {
                             txt.setText("NULL");

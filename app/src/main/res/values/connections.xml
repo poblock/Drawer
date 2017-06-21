@@ -1,36 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="tmdb_categories">
-        <item>Action</item>
-        <item>Adventure</item>
-        <item>Animation</item>
-        <item>Comedy</item>
-        <item>Crime</item>
-        <item>Disaster</item>
-        <item>Documentary</item>
-        <item>Drama</item>
-        <item>Eastern</item>
-        <item>Erotic</item>
-        <item>Family</item>
-        <item>Fan Film</item>
-        <item>Fantasy</item>
-        <item>Film Noir</item>
-        <item>History</item>
-        <item>Holiday</item>
-        <item>Horror</item>
-        <item>Indie</item>
-        <item>Music</item>
-        <item>Musical</item>
-        <item>Mystery</item>
-        <item>Neo Noir</item>
-        <item>Road Movie</item>
-        <item>Romance</item>
-        <item>Science Fiction</item>
-        <item>Short</item>
-        <item>Sport</item>
-        <item>Suspense</item>
-        <item>Thriller</item>
-        <item>War</item>
-        <item>Western</item>
+    <string-array name="W6">
+		<item>HAM</item>
+		<item>CGN</item>
+		<item>DTM</item>
+		<item>NYO</item>
+		<item>MMX</item>
+		<item>GOT</item>
+		<item>BLL</item>
+		<item>HHN</item>
+		<item>GRQ</item>
+		<item>EIN</item>
+		<item>BVA</item>
+		<item>BGY</item>
+		<item>BCN</item>
+		<item>KEF</item>
+		<item>LPL</item>
+		<item>LTN</item>
+		<item>CRL</item>
+		<item>ABZ</item>
+		<item>BGO</item>
+		<item>GNB</item>
+		<item>GLA</item>
+		<item>ORK</item>
+	    <item>IEV</item>
+	    <item>TKU</item>
+		<item>TRD</item>
+	    <item>MOL</item>
+	    <item>AES</item>
+	    <item>HAU</item>
+	    <item>SVG</item>
+	    <item>TRF</item>
+	    <item>KRS</item>
+	    <item>DSA</item>
+    </string-array>
+	<string-array name="LO">
+		<item>KRK</item>
+        <item>WAW</item>
+		<item>TLV</item>
+    </string-array>
+	<string-array name="SK">
+        <item>ARN</item>
+		<item>CPH</item>
+		<item>OSL</item>
+		<item>BGO</item>
+    </string-array>
+	<string-array name="DY">
+        <item>OSL</item>
+    </string-array>
+	<string-array name="FR">
+        <item>KRK</item>
+        <item>WAW</item>
+		<item>WRO</item>
+		<item>TLV</item>
+		<item>MLA</item>
+		<item>AAR</item>
+		<item>BGY</item>
+		<item>PSA</item>
+		<item>NAP</item>
+		<item>NYO</item>
+		<item>ALC</item>
+		<item>EDI</item>
+		<item>STN</item>
+		<item>VDA</item>
+		<item>MAN</item>
+		<item>VXO</item>
+		<item>ORK</item>
+		<item>BFS</item>
+		<item>BHX</item>
+		<item>BRS</item>
+		<item>DUB</item>
+		<item>LBA</item>
+		<item>NCL</item>
+    </string-array>
+	<string-array name="LH">
+		<item>FRA</item>
+        <item>MUC</item>
+    </string-array>
+	<string-array name="AB">
+        <item>TXL</item>
+    </string-array>
+	<string-array name="AY">
+        <item>HEL</item>
+    </string-array>
+	<string-array name="KL">
+        <item>AMS</item>
+    </string-array>
+	<string-array name="PS">
+        <item>IFO</item>
+    </string-array>
+	<string-array name="P8">
+        <item>RDO</item>
     </string-array>
 </resources>

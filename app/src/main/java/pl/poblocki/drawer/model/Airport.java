@@ -23,14 +23,6 @@ public class Airport {
         setLongitude(longitude);
     }
 
-    public Airport(String airportName, String airportCode, String airportCountry, String latitude, String longitude) {
-        setName(airportName);
-        setCode(airportCode);
-        setCountry(airportCountry);
-        setLatitude(latitude);
-        setLongitude(longitude);
-    }
-
     public long getId() {
         return id;
     }
@@ -84,7 +76,6 @@ public class Airport {
     public String toString() {
         return "Airport{" +
                 "airportCode='" + airportCode + '\'' +
-                ", airportName='" + airportName + '\'' +
                 ", countryCode='" + countryCode + '\'' +
                 ", latitude='" + latitude + '\'' +
                 ", longitude='" + longitude + '\'' +

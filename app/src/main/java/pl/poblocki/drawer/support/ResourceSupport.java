@@ -29,7 +29,9 @@ public class ResourceSupport {
         try {
             Resources resources = context.getResources();
             final int resourceId = resources.getIdentifier(name, "string", context.getPackageName());
-            return context.getString(resourceId);
+            if(resourceId>0) {
+                return context.getString(resourceId);
+            }
         } catch (Exception e) {
             Log.e("ResourceSupport","Error "+e.getMessage());
         }
