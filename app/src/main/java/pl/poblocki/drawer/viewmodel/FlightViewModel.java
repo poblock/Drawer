@@ -40,27 +40,27 @@ public class FlightViewModel {
         String airline = this.freighter;
         int img = -1;
         if(airline.equals("Wizzair")) {
-            img = R.drawable.wizzair;
+            img = R.drawable.w6;
         } else if(airline.equals("Ryanair")) {
-            img = R.drawable.ryanair;
+            img = R.drawable.fr;
         } else if(airline.equals("LOT")) {
-            img = R.drawable.lot;
+            img = R.drawable.lo;
         } else if(airline.equals("Lufthansa")) {
-            img = R.drawable.lufthansa;
+            img = R.drawable.lh;
         }else if(airline.equals("Air Berlin")) {
-            img = R.drawable.air_berlin;
+            img = R.drawable.ab;
         }else if(airline.equals("Finnair")) {
-            img = R.drawable.finnair;
+            img = R.drawable.ay;
         }else if(airline.equals("KLM")) {
-            img = R.drawable.klm;
+            img = R.drawable.kl;
         }else if(airline.equals("Norwegian")) {
-            img = R.drawable.norwegian;
+            img = R.drawable.dy;
         }else if(airline.equals("SAS")) {
-            img = R.drawable.sas;
+            img = R.drawable.sk;
         }else if(airline.equals("UIA")) {
-            img = R.drawable.uia;
+            img = R.drawable.ps;
         }else if(airline.equals("Travel Service")) {
-            img = R.drawable.travelservice;
+            img = R.drawable.travel;
         }else if(airline.equals("7 Islands")) {
             img = R.drawable.sevenislands;
         }else if(airline.equals("Blue Bird")) {
@@ -80,7 +80,7 @@ public class FlightViewModel {
         }else if(airline.equals("Rainbow")) {
             img = R.drawable.rainbow;
         }else if(airline.equals("Small Planet")) {
-            img = R.drawable.smallplanet;
+            img = R.drawable.p7;
         }else if(airline.equals("SunFun")) {
             img = R.drawable.sf;
         }else if(airline.equals("TUI")) {
@@ -90,7 +90,7 @@ public class FlightViewModel {
         }else if(airline.equals("Wizz Tours")) {
             img = R.drawable.wizztours;
         }else if(airline.equals("Sprint Air")) {
-            img = R.drawable.sprint;
+            img = R.drawable.p8;
         }else if(airline.equals("AlMasria")) {
             img = R.drawable.uj;
         }else if(airline.equals("Corendon")) {
