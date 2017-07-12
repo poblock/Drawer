@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.list;
+package pl.poblocki.drawer.data;
 
 import java.util.ArrayList;
 import java.util.HashMap;

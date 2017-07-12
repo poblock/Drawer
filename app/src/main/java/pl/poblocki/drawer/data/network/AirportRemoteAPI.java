@@ -8,7 +8,7 @@ import pl.poblocki.drawer.model.DBTime;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface API {
+public interface AirportRemoteAPI {
 
     @GET("time")
     Call<List<DBTime>> getDBTime();

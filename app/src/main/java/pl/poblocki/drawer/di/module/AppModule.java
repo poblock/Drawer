@@ -12,8 +12,9 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 import pl.poblocki.drawer.data.AirportRepository;
 import pl.poblocki.drawer.data.db.AirportLocalSource;
-import pl.poblocki.drawer.manager.FlightManager;
-import pl.poblocki.drawer.data.network.API;
+import pl.poblocki.drawer.data.network.AirportRemoteAPI;
+import pl.poblocki.drawer.data.network.AirportRemoteSource;
+import pl.poblocki.drawer.data.FlightManager;
 import pl.poblocki.drawer.support.ResourceSupport;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
@@ -41,6 +42,10 @@ public class AppModule {
     @Provides
     @Singleton
     AirportLocalSource provideLocalSource(Context context) {return new AirportLocalSource(context);}
+
+    @Provides
+    @Singleton
+    FlightManager provideManager() {return new FlightManager();}
 
     @Provides
     @Named("URL")
@@ -75,19 +80,19 @@ public class AppModule {
 
     @Provides
     @Singleton
-    API provideAPI(Retrofit retrofit) {
-        return retrofit.create(API.class);
+    AirportRemoteAPI provideAPI(Retrofit retrofit) {
+        return retrofit.create(AirportRemoteAPI.class);
     }
 
     @Provides
     @Singleton
-    FlightManager provideManager(API serverAPI) {
-        return new FlightManager(serverAPI);
+    AirportRemoteSource provideAirportRemoteSource(AirportRemoteAPI serverAPI) {
+        return new AirportRemoteSource(serverAPI);
     }
 
     @Provides
     @Singleton
-    AirportRepository provideDataRepository(API remoteSource, AirportLocalSource localSource) {
+    AirportRepository provideDataRepository(AirportRemoteSource remoteSource, AirportLocalSource localSource) {
         return new AirportRepository(remoteSource, localSource);
     }
 }

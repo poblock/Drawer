@@ -7,6 +7,7 @@ import android.util.Log;
 
 import java.util.List;
 
+import pl.poblocki.drawer.data.IRepository;
 import pl.poblocki.drawer.data.db.dao.AirlineDao;
 import pl.poblocki.drawer.data.db.dao.AirportDao;
 import pl.poblocki.drawer.data.db.dao.ConnectionDao;
@@ -16,11 +17,9 @@ import pl.poblocki.drawer.model.Airport;
 import pl.poblocki.drawer.model.Connection;
 import pl.poblocki.drawer.model.DBTime;
 
-public class AirportLocalSource {
+public class AirportLocalSource implements IRepository {
 
-//    private Context context;
     private SQLiteDatabase db;
-//    private static AirportLocalSource INSTANCE = null;
     private AirportDBHelper mDbHelper;
 
     private AirlineDao airlineDao;
@@ -32,20 +31,11 @@ public class AirportLocalSource {
         mDbHelper = new AirportDBHelper(context);
         db = mDbHelper.getWritableDatabase();
         Log.i("DB", "Utworzono obiekt klasyDataManagerImpl created. Stan bazy: " + db.isOpen());
-
-
         airlineDao = new AirlineDao(db);
         airportDao = new AirportDao(db);
         connectionDao = new ConnectionDao(db);
         dbTimeDao = new DBTimeDao(db);
     }
-
-//    public static AirportLocalSource getInstance(Context context) {
-//        if(INSTANCE==null) {
-//            INSTANCE = new AirportLocalSource(context);
-//        }
-//        return INSTANCE;
-//    }
 
     public SQLiteDatabase getDb() {
         return db;
@@ -119,11 +109,18 @@ public class AirportLocalSource {
         }
     }
 
-    public List<Airport> getAllAirports() {
+    @Override
+    public List<DBTime> getDBTime() {
+        return null;
+    }
+
+    @Override
+    public List<Airport> getAirports() {
         return airportDao.getAll();
     }
 
-    public List<Airline> getAllAirlines() {
+    @Override
+    public List<Airline> getAirlines() {
         return airlineDao.getAll();
     }
 

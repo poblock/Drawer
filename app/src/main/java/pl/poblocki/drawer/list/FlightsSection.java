@@ -12,8 +12,9 @@ import java.util.Calendar;
 import java.util.List;
 
 import pl.poblocki.drawer.R;
+import pl.poblocki.drawer.data.Content;
 import pl.poblocki.drawer.model.Flight;
-import pl.poblocki.drawer.section.StatelessSection;
+import pl.poblocki.drawer.list.section.StatelessSection;
 
 /**
  * Created by krzysztof.poblocki on 2016-12-27.

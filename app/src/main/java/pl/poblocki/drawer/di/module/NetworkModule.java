@@ -34,13 +34,13 @@ public class NetworkModule {
 //
 //    @Provides
 //    @Singleton
-//    API provideAPI(Retrofit retrofit) {
-//        return retrofit.create(API.class);
+//    AirportRemoteAPI provideAPI(Retrofit retrofit) {
+//        return retrofit.create(AirportRemoteAPI.class);
 //    }
 //
 //    @Provides
 //    @Singleton
-//    FlightManager provideManager(API serverAPI) {
+//    FlightManager provideManager(AirportRemoteAPI serverAPI) {
 //        return new FlightManager(serverAPI);
 //    }
 }

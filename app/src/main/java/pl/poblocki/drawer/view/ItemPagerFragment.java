@@ -2,8 +2,6 @@ package pl.poblocki.drawer.view;
 
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,18 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import javax.inject.Inject;
-
 //import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
-import pl.poblocki.drawer.databinding.FragmentItemPagerBinding;
-import pl.poblocki.drawer.di.module.ActivityModule;
-import pl.poblocki.drawer.list.FlightsListAdapter;
 import pl.poblocki.drawer.list.FlightsSection;
-import pl.poblocki.drawer.section.SectionedRecyclerViewAdapter;
-import pl.poblocki.drawer.viewmodel.FlightsListViewModel;
+import pl.poblocki.drawer.list.section.SectionedRecyclerViewAdapter;
 
 
 public class ItemPagerFragment extends Fragment {

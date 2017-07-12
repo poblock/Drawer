@@ -1,24 +1,18 @@
 package pl.poblocki.drawer.list;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.databinding.ListItemBinding;
-import pl.poblocki.drawer.di.scope.ForActivity;
-import pl.poblocki.drawer.section.StatelessSection;
+import pl.poblocki.drawer.list.section.StatelessSection;
 import pl.poblocki.drawer.viewmodel.FlightViewModel;
 import pl.poblocki.drawer.viewmodel.FlightsListViewModel;
 

@@ -17,8 +17,7 @@ import javax.inject.Inject;
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.data.AirportRepository;
-import pl.poblocki.drawer.di.module.ActivityModule;
-import pl.poblocki.drawer.manager.FlightManager;
+import pl.poblocki.drawer.data.FlightManager;
 import pl.poblocki.drawer.model.Airport;
 import pl.poblocki.drawer.support.ResourceSupport;
 

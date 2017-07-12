@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.manager;
+package pl.poblocki.drawer.data;
 
 import android.util.Log;
 

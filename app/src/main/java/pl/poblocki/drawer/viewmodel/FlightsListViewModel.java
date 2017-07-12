@@ -7,8 +7,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
-import pl.poblocki.drawer.di.scope.ActivityScope;
-import pl.poblocki.drawer.manager.FlightManager;
+import pl.poblocki.drawer.data.FlightManager;
 import pl.poblocki.drawer.model.Flight;
 import pl.poblocki.drawer.support.ListBinder;
 
