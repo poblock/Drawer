@@ -39,7 +39,10 @@ public class AirportRepository {
 
     public void getFlights() {
         Log.i("REPOSITORY", "getFlights");
-        remoteSource.getFlights();
+        FlightsResponse response = remoteSource.getFlights();
+        if(response!=null) {
+            Log.i("REPOSITORY", "Response "+response);
+        }
     }
 
     private void refreshCacheAirports(List<Airport> data) {

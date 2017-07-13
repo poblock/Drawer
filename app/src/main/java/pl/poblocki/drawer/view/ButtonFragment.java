@@ -2,6 +2,9 @@ package pl.poblocki.drawer.view;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,6 +37,9 @@ public class ButtonFragment extends Fragment {
     @Inject
     AirportRepository repository;
 
+    private BackgroundThread mBackgroundThread;
+    private TextView txt;
+
     public ButtonFragment() {
         AirportApplication.component()//.plus(new ActivityModule(getActivity()))
                 .inject(this);
@@ -53,6 +59,72 @@ public class ButtonFragment extends Fragment {
         if (getArguments() != null) {
             pageID = getArguments().getInt(PAGE_ID);
         }
+        mBackgroundThread = new BackgroundThread();
+        mBackgroundThread.start();
+    }
+
+    private final Handler mUiHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            String content = (String) msg.obj;
+            txt.setText(content);
+        }
+    };
+
+    private class BackgroundThread extends Thread {
+
+        private Handler mBackgroundHandler;
+
+        public void run() {
+            Looper.prepare();
+            mBackgroundHandler = new Handler();
+            Looper.loop();
+        }
+
+        public void exit() {
+            mBackgroundHandler.getLooper().quit();
+        }
+
+        public void fetchAirportsData() {
+            mBackgroundHandler.post(() -> {
+                String str = "";
+                Message uiMsg = mUiHandler.obtainMessage(0, 0, 0, null);
+                if(repository!=null) {
+                    List<Airport> result = repository.getAirports();
+                    if(result!=null) {
+                        for(Airport a : result) {
+                            str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
+                        }
+                    } else {
+                        str = "NULL";
+                    }
+                } else {
+                    str = "REPOSITORY NULL";
+                }
+                uiMsg.obj = str;
+                mUiHandler.sendMessage(uiMsg);
+            });
+        }
+
+        public void fetchFlightsData() {
+            mBackgroundHandler.post(() -> {
+                String str = "";
+                Message uiMsg = mUiHandler.obtainMessage(0, 0, 0, null);
+                if(repository!=null) {
+                    repository.getFlights();
+//                    if(result!=null) {
+//                        for(Airport a : result) {
+//                            str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
+//                        }
+//                    } else {
+//                        str = "NULL";
+//                    }
+                } else {
+                    str = "REPOSITORY NULL";
+                }
+                uiMsg.obj = str;
+                mUiHandler.sendMessage(uiMsg);
+            });
+        }
     }
 
     @Override
@@ -61,7 +133,7 @@ public class ButtonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_button, container, false);
         Button b = (Button) view.findViewById(R.id.button);
 
-        TextView txt = (TextView) view.findViewById(R.id.textView);
+        txt = (TextView) view.findViewById(R.id.textView);
         txt.setText("Strona "+pageID);
 
         Snackbar snackbar = Snackbar.make(view, "Welcome in "+pageID, Snackbar.LENGTH_LONG);
@@ -70,23 +142,14 @@ public class ButtonFragment extends Fragment {
             case R.id.nav_before_flight :
             case R.id.nav_destinations_map :
                 b.setOnClickListener(view1 -> {
-                    if(repository!=null) {
-                        List<Airport> result = repository.getAirports();
-                        if(result!=null) {
-                            String str = "";
-                            for(Airport a : result) {
-                                str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
-                            }
-                            txt.setText(str);
-                        } else {
-                            txt.setText("NULL");
-                        }
-                    } else {
-                        txt.setText("REPOSITORY NULL");
-                    }
+                    mBackgroundThread.fetchAirportsData();
                 });
                 break;
             case R.id.nav_parking :
+                b.setOnClickListener(view1 -> {
+                    mBackgroundThread.fetchFlightsData();
+                });
+                break;
             case R.id.nav_terminal :
                 b.setOnClickListener(view12 -> snackbar.show());
                 break;
@@ -110,5 +173,11 @@ public class ButtonFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mBackgroundThread.exit();
     }
 }
