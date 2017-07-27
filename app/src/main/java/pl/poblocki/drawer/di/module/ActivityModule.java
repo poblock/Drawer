@@ -7,9 +7,6 @@ import dagger.Module;
 import dagger.Provides;
 import pl.poblocki.drawer.di.scope.ActivityScope;
 import pl.poblocki.drawer.di.scope.ForActivity;
-import pl.poblocki.drawer.support.ListBinder;
-import pl.poblocki.drawer.viewmodel.FlightViewModel;
-import pl.poblocki.drawer.viewmodel.FlightsDiffCallback;
 
 @Module
 public class ActivityModule {
@@ -26,8 +23,8 @@ public class ActivityModule {
         return activity;
     }
 
-    @Provides
-    public ListBinder<FlightViewModel> provideListBinder(FlightsDiffCallback flightsDiffCallback) {
-        return new ListBinder<>(flightsDiffCallback);
-    }
+//    @Provides
+//    public ListBinder<FlightViewModel> provideListBinder(FlightsDiffCallback flightsDiffCallback) {
+//        return new ListBinder<>(flightsDiffCallback);
+//    }
 }

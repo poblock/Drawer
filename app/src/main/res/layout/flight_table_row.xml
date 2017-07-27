@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/row_destination"
+                    tools:text="HEL"
+                    android:textStyle="normal|bold"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_time"
+                    android:layout_weight="1.5"
+                    tools:text="09:25" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_freighter"
+                    android:layout_weight="1"
+                    tools:text="AY" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_flight"
+                    android:layout_weight="1"
+                    tools:text="AY751" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_exp_time"
+                    android:layout_weight="1.5"
+                    tools:text="09:28" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_status"
+                    android:layout_weight="1"
+                    tools:text="LANDED" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/observeFlightChk"
+            android:layout_weight="8"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:button="@drawable/observe"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:focusable="false" />
+    </LinearLayout>
+
+</LinearLayout>

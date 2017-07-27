@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <import type="pl.poblocki.drawer.viewmodel.FlightViewModel" />
-        <variable name="flight" type="FlightViewModel" />
-    </data>
-
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="70dp"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal">
-        <TextView
-            android:id="@+id/content_destination"
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/item_table"
-            android:textAlignment="viewStart"
-            android:text="@{flight.destination}"
             android:layout_gravity="center_vertical|center_horizontal|start"
             android:layout_marginStart="@dimen/item_table_margin_start"
             android:layout_marginLeft="@dimen/item_table_margin_start"
-            android:textStyle="normal"
-            />
+            >
 
-        <TextView
-            android:id="@+id/content_flight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/item_table"
-            android:text="@{flight.flight}"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="0"
-            android:minWidth="60dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:gravity="center_horizontal"
-            />
+            <TextView
+                android:id="@+id/content_destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textStyle="normal"
+                android:textColor="@color/table_item_txt"
+                tools:text="EINDHOVEN" />
+
+            <TextView
+                android:id="@+id/content_flight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="W6 1602"
+
+                android:textAlignment="viewStart" />
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/content_freighter"
@@ -51,12 +49,16 @@
             android:scaleType="fitCenter"
             />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/item_table">
         <TextView
             android:id="@+id/content_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/item_table"
-            android:text="@{flight.time}"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_weight="0"
@@ -64,14 +66,13 @@
             android:layout_marginRight="8dp"
             android:minWidth="56dp"
             android:gravity="center_horizontal"
-            />
+            tools:text="10:35" />
 
         <TextView
             android:id="@+id/content_exp_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/item_table"
-            android:text="@{flight.exp_time}"
             android:layout_marginLeft="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
@@ -79,21 +80,30 @@
             android:minWidth="56dp"
             android:layout_weight="0"
             android:gravity="center_horizontal"
-            />
+            tools:text="10:38" />
+    </LinearLayout>
+
 
         <TextView
             android:id="@+id/content_remarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/item_table"
-            android:text="@{flight.status}"
-            android:textAlignment="viewEnd"
             android:layout_gravity="center_vertical|center_horizontal|end"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            />
+            tools:text="OPÓŹNIONY 10:38" />
 
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/observeFlightChk"
+        android:layout_weight="1.25"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:button="@drawable/observe"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:focusable="false" />
     </LinearLayout>
-</layout>

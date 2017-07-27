@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lotnisko Gdańsk</string>
+    <string name="app_name">GDN Airport</string>
     <string name="action_settings">Ustawienia</string>
     <string name="navigation_drawer_close">Zamknij</string>
     <string name="navigation_drawer_open">Otwórz</string>

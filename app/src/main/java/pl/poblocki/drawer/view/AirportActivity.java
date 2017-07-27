@@ -3,7 +3,6 @@ package pl.poblocki.drawer.view;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,8 +14,6 @@ import android.view.MenuItem;
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.demo.AlbumsFragment;
-import pl.poblocki.drawer.di.module.ActivityModule;
-import pl.poblocki.drawer.service.ServiceFragment;
 
 public class AirportActivity
         extends AppCompatActivity
@@ -91,8 +88,8 @@ public class AirportActivity
         if(item.getItemId()==R.id.nav_arrivals || item.getItemId()==R.id.nav_departures) {
             f = FlightsFragment.newInstance(item.getItemId());
         } else if(item.getItemId()==R.id.nav_terminal) {
-            f = ServiceFragment.newInstance("","");
-        } else {
+//            f = ServiceFragment.newInstance("","");
+//        } else {
             f = ButtonFragment.newInstance(item.getItemId());
         }
         if(f!=null) {

@@ -1,31 +1,19 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="pl.poblocki.drawer.view.ItemPagerFragment">
-
-    <data>
-        <import type="pl.poblocki.drawer.viewmodel.FlightsListViewModel" />
-        <variable name="viewModel" type="FlightsListViewModel" />
-    </data>
-
-    <FrameLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/header_bg">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/header_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/tablayout_indicator"/>
 
-        <include layout="@layout/list_header" />
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:listBinder="@{viewModel.listBinder}"
             app:layoutManager="LinearLayoutManager"
             tools:listitem="@layout/list_item"
-            android:layout_marginTop="48dp" />
-    </FrameLayout>
-
-</layout>
+            android:layout_marginTop="1dp" />
+</FrameLayout>

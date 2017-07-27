@@ -85,44 +85,43 @@ public class ButtonFragment extends Fragment {
         }
 
         public void fetchAirportsData() {
-            mBackgroundHandler.post(() -> {
-                String str = "";
-                Message uiMsg = mUiHandler.obtainMessage(0, 0, 0, null);
-                if(repository!=null) {
-                    List<Airport> result = repository.getAirports();
-                    if(result!=null) {
-                        for(Airport a : result) {
-                            str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
+            mBackgroundHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    String str = "";
+                    Message uiMsg = mUiHandler.obtainMessage(0, 0, 0, null);
+                    if(repository!=null) {
+                        List<Airport> result = repository.getAirports();
+                        if(result!=null) {
+                            for(Airport a : result) {
+                                str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
+                            }
+                        } else {
+                            str = "NULL";
                         }
                     } else {
-                        str = "NULL";
+                        str = "REPOSITORY NULL";
                     }
-                } else {
-                    str = "REPOSITORY NULL";
+                    uiMsg.obj = str;
+                    mUiHandler.sendMessage(uiMsg);
                 }
-                uiMsg.obj = str;
-                mUiHandler.sendMessage(uiMsg);
             });
         }
 
         public void fetchFlightsData() {
-            mBackgroundHandler.post(() -> {
-                String str = "";
-                Message uiMsg = mUiHandler.obtainMessage(0, 0, 0, null);
-                if(repository!=null) {
-                    repository.getFlights();
-//                    if(result!=null) {
-//                        for(Airport a : result) {
-//                            str += support.getString(a.getCode())+" -> "+a.toString() + "\n";
-//                        }
-//                    } else {
-//                        str = "NULL";
-//                    }
-                } else {
-                    str = "REPOSITORY NULL";
+            mBackgroundHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    String str = "";
+                    Message uiMsg = mUiHandler.obtainMessage(0, 0, 0, null);
+                    if(repository!=null) {
+                        repository.getFlights();
+                    } else {
+                        str = "REPOSITORY NULL";
+                    }
+                    uiMsg.obj = str;
+                    mUiHandler.sendMessage(uiMsg);
                 }
-                uiMsg.obj = str;
-                mUiHandler.sendMessage(uiMsg);
             });
         }
     }
@@ -136,29 +135,43 @@ public class ButtonFragment extends Fragment {
         txt = (TextView) view.findViewById(R.id.textView);
         txt.setText("Strona "+pageID);
 
-        Snackbar snackbar = Snackbar.make(view, "Welcome in "+pageID, Snackbar.LENGTH_LONG);
+        final Snackbar snackbar = Snackbar.make(view, "Welcome in "+pageID, Snackbar.LENGTH_LONG);
 
         switch (pageID) {
             case R.id.nav_before_flight :
             case R.id.nav_destinations_map :
-                b.setOnClickListener(view1 -> {
-                    mBackgroundThread.fetchAirportsData();
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mBackgroundThread.fetchAirportsData();
+                    }
                 });
                 break;
             case R.id.nav_parking :
-                b.setOnClickListener(view1 -> {
-                    mBackgroundThread.fetchFlightsData();
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mBackgroundThread.fetchFlightsData();
+                    }
                 });
                 break;
             case R.id.nav_terminal :
-                b.setOnClickListener(view12 -> snackbar.show());
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        snackbar.show();
+                    }
+                });
                 break;
             case R.id.nav_transportation :
-                b.setOnClickListener(view1 -> {
-                      if(support!=null) {
-                          String str = support.getString("WAW");
-                          txt.setText(str);
-                      }
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(support!=null) {
+                            String str = support.getString("WAW");
+                            txt.setText(str);
+                        }
+                    }
                 });
                 break;
         }

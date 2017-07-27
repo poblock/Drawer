@@ -18,17 +18,12 @@ import pl.poblocki.drawer.list.section.SectionedRecyclerViewAdapter;
 
 public class ItemPagerFragment extends Fragment {
 
-    public ItemPagerFragment() {
-//        AirportApplication.component().plus(new ActivityModule(getActivity())).inject(this);
-    }
+    public ItemPagerFragment() {}
 
     public static ItemPagerFragment newInstance() {
         ItemPagerFragment fragment = new ItemPagerFragment();
         return fragment;
     }
-
-//    @Inject
-//    FlightsListViewModel flightsListViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,14 +31,9 @@ public class ItemPagerFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_pager, container, false);
-//        FragmentItemPagerBinding fragmentItemPagerBinding = DataBindingUtil.setContentView(getActivity(), R.layout.fragment_item_pager);
-
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
-//        RecyclerView recyclerView = fragmentItemPagerBinding.list;
-
         Context context = view.getContext();
         LinearLayoutManager manager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(manager);
@@ -51,17 +41,7 @@ public class ItemPagerFragment extends Fragment {
         SectionedRecyclerViewAdapter sectionAdapter = new SectionedRecyclerViewAdapter();
         sectionAdapter.addSection(new FlightsSection(getContext(), false));
         sectionAdapter.addSection(new FlightsSection(getContext(), true));
-
-//        sectionAdapter.addSection(new FlightsListAdapter(getContext(), false, flightsListViewModel));
-//        sectionAdapter.addSection(new FlightsListAdapter(getContext(), true, flightsListViewModel));
         recyclerView.setAdapter(sectionAdapter);
-
-
-//        fragmentItemPagerBinding.setViewModel(flightsListViewModel);
-//        flightsListViewModel.initialize();
-//        flightsListViewModel.scrollTo()
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(pos -> recyclerView.smoothScrollToPosition(pos));
 
         return view;
     }
