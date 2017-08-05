@@ -1,25 +1,57 @@
-package pl.poblocki.drawer.view;
+package pl.poblocki.drawer.flights;
 
 
+import android.app.AlarmManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.List;
 
 import pl.poblocki.drawer.R;
+import pl.poblocki.drawer.flights.service.FlightsIntentService;
+import pl.poblocki.drawer.flights.service.FlightsReceiver;
+import pl.poblocki.drawer.model.Flight;
 
 
-public class FlightsFragment extends Fragment {
+public class FlightsFragment extends Fragment implements FlightsContract.View {
 
     private static final String ARG_PARAM1 = "param1";
     private int pageID;
-    public FlightsFragment() {}
+    private FlightsContract.Presenter mPresenter;
+//    private static final long TIME = 5 * 1000; // 5 sek.
+//    private TextView timeStatus;
+//    private LinearLayout table;
+//    private LinearLayout wait;
+//
+//    private AlarmManager am;
+//    private FlightsReceiver alarmReceiver;
+    private static final String TAG = "FlightsFragment";
+
+    public FlightsFragment() {
+        Log.d(TAG, "FlightsFragment()");
+//        ResultReceiver mReceiver = new ResultReceiver(new Handler()) {
+//            @Override
+//            protected void onReceiveResult(int resultCode, Bundle resultData) {
+//                String result = resultData.getString(FlightsIntentService.BUNDLE_KEY_REQUEST_RESULT);
+//                Log.d(TAG, "onReceiveResult "+resultCode+" "+result);
+//                mPresenter.onReceiveResult(resultCode);
+//            }
+//        };
+//        alarmReceiver = new FlightsReceiver(mReceiver);
+    }
 
     public static FlightsFragment newInstance(int param1) {
         FlightsFragment fragment = new FlightsFragment();
@@ -63,6 +95,31 @@ public class FlightsFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void showFlightDetailsUI(Flight flight) {
+
+    }
+
+    @Override
+    public void setPresenter(FlightsContract.Presenter presenter) {
+
+    }
+
+    @Override
+    public void refreshUI(String arrivalsTime, String departuresTime, List<Flight> arrivals, List<Flight> departures) {
+
+    }
+
+    @Override
+    public void showLoading(boolean show) {
+
+    }
+
+    @Override
+    public void onShowErrorUI() {
+
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

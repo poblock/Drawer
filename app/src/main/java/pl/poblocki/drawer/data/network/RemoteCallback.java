@@ -27,7 +27,7 @@ import retrofit2.Response;
 import static pl.poblocki.drawer.data.Flights.AKTUALIZACJA;
 import static pl.poblocki.drawer.data.Flights.NOWY;
 import static pl.poblocki.drawer.data.Flights.USUNIETY;
-import static pl.poblocki.drawer.service.FlightsIntentService.BUNDLE_KEY_REQUEST_RESULT;
+import static pl.poblocki.drawer.flights.service.FlightsIntentService.BUNDLE_KEY_REQUEST_RESULT;
 
 
 /**

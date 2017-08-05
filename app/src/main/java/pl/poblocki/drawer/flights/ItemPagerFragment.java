@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.view;
+package pl.poblocki.drawer.flights;
 
 
 import android.content.Context;
@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 //import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import pl.poblocki.drawer.R;
-import pl.poblocki.drawer.list.FlightsSection;
-import pl.poblocki.drawer.list.section.SectionedRecyclerViewAdapter;
+import pl.poblocki.drawer.flights.list.FlightsSection;
+import pl.poblocki.drawer.flights.list.section.SectionedRecyclerViewAdapter;
 
 
 public class ItemPagerFragment extends Fragment {

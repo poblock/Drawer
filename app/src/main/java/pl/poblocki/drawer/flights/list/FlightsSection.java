@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.list;
+package pl.poblocki.drawer.flights.list;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -14,7 +14,7 @@ import java.util.List;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.data.Content;
 import pl.poblocki.drawer.model.Flight;
-import pl.poblocki.drawer.list.section.StatelessSection;
+import pl.poblocki.drawer.flights.list.section.StatelessSection;
 
 /**
  * Created by krzysztof.poblocki on 2016-12-27.

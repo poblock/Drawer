@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.service;
+package pl.poblocki.drawer.flights.service;
 
 import android.app.IntentService;
 import android.content.Context;

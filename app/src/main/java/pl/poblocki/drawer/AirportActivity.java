@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.view;
+package pl.poblocki.drawer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import pl.poblocki.drawer.AirportApplication;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.demo.AlbumsFragment;
+import pl.poblocki.drawer.flights.FlightsFragment;
+import pl.poblocki.drawer.flights.FlightsPresenter;
+import pl.poblocki.drawer.view.ButtonFragment;
 
 public class AirportActivity
         extends AppCompatActivity
@@ -84,18 +87,22 @@ public class AirportActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        Fragment f = null;
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
         if(item.getItemId()==R.id.nav_arrivals || item.getItemId()==R.id.nav_departures) {
-            f = FlightsFragment.newInstance(item.getItemId());
+            FlightsFragment ff = (FlightsFragment) getSupportFragmentManager().findFragmentById(R.id.content_frame);
+            if(ff==null) {
+                ff = FlightsFragment.newInstance(item.getItemId());
+            }
+            ft.replace(R.id.content_frame, ff);
+            ft.commit();
+            FlightsPresenter mPresenter = new FlightsPresenter(ff);
         } else if(item.getItemId()==R.id.nav_terminal) {
-//            f = ServiceFragment.newInstance("","");
-//        } else {
-            f = ButtonFragment.newInstance(item.getItemId());
-        }
-        if(f!=null) {
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.replace(R.id.content_frame, f);
+            ButtonFragment bf = (ButtonFragment) getSupportFragmentManager().findFragmentById(R.id.content_frame);
+            if(bf==null) {
+                bf = ButtonFragment.newInstance(item.getItemId());
+            }
+            ft.replace(R.id.content_frame, bf);
             ft.commit();
         }
 

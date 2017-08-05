@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.list.section;
+package pl.poblocki.drawer.flights.list.section;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;

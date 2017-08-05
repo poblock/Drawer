@@ -26,8 +26,8 @@ import java.util.List;
 import pl.poblocki.drawer.R;
 import pl.poblocki.drawer.details.FlightDetails;
 import pl.poblocki.drawer.model.Flight;
-import pl.poblocki.drawer.service.FlightsIntentService;
-import pl.poblocki.drawer.service.FlightsReceiver;
+import pl.poblocki.drawer.flights.service.FlightsIntentService;
+import pl.poblocki.drawer.flights.service.FlightsReceiver;
 
 public class FlightsActivity extends AppCompatActivity implements FlightsContract.View {
 

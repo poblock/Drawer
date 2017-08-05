@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.viewmodel;
+package pl.poblocki.drawer.flights;
 
 import javax.inject.Inject;
 

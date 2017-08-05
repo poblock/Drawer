@@ -1,4 +1,4 @@
-package pl.poblocki.drawer.list.section;
+package pl.poblocki.drawer.flights.list.section;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
