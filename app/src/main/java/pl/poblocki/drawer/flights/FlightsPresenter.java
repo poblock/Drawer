@@ -1,11 +1,21 @@
 package pl.poblocki.drawer.flights;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.util.Log;
 
 import java.util.List;
 
 import pl.poblocki.drawer.data.Flights;
+import pl.poblocki.drawer.flights.service.FlightsIntentService;
+import pl.poblocki.drawer.flights.service.FlightsReceiver;
 import pl.poblocki.drawer.model.Flight;
 
 
@@ -34,7 +44,7 @@ public class FlightsPresenter implements FlightsContract.Presenter {
     }
 
     @Override
-    public void onReceiveResult(int resultCode) {
+    public void onResult(int resultCode) {
         Log.d(TAG, "onReceiveResult "+resultCode);
         mView.showLoading(false);
         if(resultCode == 200) {

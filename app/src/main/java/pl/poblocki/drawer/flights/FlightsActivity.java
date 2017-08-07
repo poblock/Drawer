@@ -49,7 +49,7 @@ public class FlightsActivity extends AppCompatActivity implements FlightsContrac
             protected void onReceiveResult(int resultCode, Bundle resultData) {
                 String result = resultData.getString(FlightsIntentService.BUNDLE_KEY_REQUEST_RESULT);
                 Log.d(TAG, "onReceiveResult "+resultCode+" "+result);
-                mPresenter.onReceiveResult(resultCode);
+                mPresenter.onResult(resultCode);
             }
         };
         alarmReceiver = new FlightsReceiver(mReceiver);

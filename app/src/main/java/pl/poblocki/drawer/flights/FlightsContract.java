@@ -21,7 +21,7 @@ public interface FlightsContract {
     interface Presenter {
         void showFlightDetails(Flight flight);
         void onObserveFlight(Flight flight);
-        void onReceiveResult(int resultCode);
+        void onResult(int resultCode);
     }
 
     interface LoadFlightsCallback {

@@ -96,7 +96,7 @@ public class AirportActivity
             }
             ft.replace(R.id.content_frame, ff);
             ft.commit();
-            FlightsPresenter mPresenter = new FlightsPresenter(ff);
+
         } else if(item.getItemId()==R.id.nav_terminal) {
             ButtonFragment bf = (ButtonFragment) getSupportFragmentManager().findFragmentById(R.id.content_frame);
             if(bf==null) {

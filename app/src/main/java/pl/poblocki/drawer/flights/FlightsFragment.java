@@ -31,26 +31,11 @@ public class FlightsFragment extends Fragment implements FlightsContract.View {
     private static final String ARG_PARAM1 = "param1";
     private int pageID;
     private FlightsContract.Presenter mPresenter;
-//    private static final long TIME = 5 * 1000; // 5 sek.
-//    private TextView timeStatus;
-//    private LinearLayout table;
-//    private LinearLayout wait;
-//
-//    private AlarmManager am;
-//    private FlightsReceiver alarmReceiver;
     private static final String TAG = "FlightsFragment";
 
     public FlightsFragment() {
         Log.d(TAG, "FlightsFragment()");
-//        ResultReceiver mReceiver = new ResultReceiver(new Handler()) {
-//            @Override
-//            protected void onReceiveResult(int resultCode, Bundle resultData) {
-//                String result = resultData.getString(FlightsIntentService.BUNDLE_KEY_REQUEST_RESULT);
-//                Log.d(TAG, "onReceiveResult "+resultCode+" "+result);
-//                mPresenter.onReceiveResult(resultCode);
-//            }
-//        };
-//        alarmReceiver = new FlightsReceiver(mReceiver);
+        mPresenter = new FlightsPresenter(this);
     }
 
     public static FlightsFragment newInstance(int param1) {
